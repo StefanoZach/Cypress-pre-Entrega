@@ -3,12 +3,13 @@ export class ShoppingCartPage {
     constructor() {
         this.button = 'button'
         this.showTotalPrice = 'Show total price'
+        this.price = '#price'
     }
-      verifyProductsName(productName) {
+    verifyProductsName(productName) {
         return cy.get(`[name="${productName}"]`);
-     };
-    verifyProductsPrice(productName)  {
-       return cy.get(`[name="${productName}"]`).siblings('#productPrice');
+    };
+    verifyProductsPrice(productName) {
+        return cy.get(`[name="${productName}"]`).siblings('#productPrice');
     };
 
     clickShowPrice() {
@@ -16,6 +17,6 @@ export class ShoppingCartPage {
     };
 
     checkTotalPrice() {
-        cy.get('.css-1g7ucpo');
+       return cy.get(this.price).children('b')
     };
 };

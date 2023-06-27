@@ -1,10 +1,14 @@
 {
+    "id": {
+        "tshirt": "blacktshirt",
+        "pants": "whitepants"
+    },
     "productOne": {
         "name": "Black T-Shirt",
-        "price": "15"
+        "price": "$15"
     },
-    "productTwo": {
+    "productTwo":{
         "name": "White Pants",
-        "price": "20"
+        "price": "$20"
     }
 }

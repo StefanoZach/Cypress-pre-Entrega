@@ -9,6 +9,7 @@ import { LandingPage } from "../support/Pages/landingPage";
 describe('template spec', () => {
   let loginData;
   let prod;
+
   const loginPage = new LoginPage();
   const homePage = new HomePage();
   const productsPage = new ProductsPage();
@@ -35,13 +36,14 @@ describe('template spec', () => {
 
   it('Suite', () => {
     homePage.clickOnlineShop();
-    productsPage.addProduct('blacktshirt');
-    productsPage.addProduct('whitepants');
+    productsPage.addProduct(prod.id.tshirt);
+    productsPage.addProduct(prod.id.pants);
     productsPage.clickShoppingCart();
-    shoppingCartPage.verifyProductsName(prod.productOne.name).should('have.text', 'Black T-Shirt');
-    shoppingCartPage.verifyProductsPrice(prod.productOne.name).should('have.text', '$15');
-    shoppingCartPage.verifyProductsName(prod.productTwo.name).should('have.text', 'White Pants');
-    shoppingCartPage.verifyProductsPrice(prod.productTwo.name).should('have.text', '$20');
+    shoppingCartPage.verifyProductsName(prod.productOne.name).should('have.text', prod.productOne.name);
+    shoppingCartPage.verifyProductsPrice(prod.productOne.name).should('have.text', prod.productOne.price);
+    shoppingCartPage.verifyProductsName(prod.productTwo.name).should('have.text', prod.productTwo.name);
+    shoppingCartPage.verifyProductsPrice(prod.productTwo.name).should('have.text', prod.productTwo.price)
     shoppingCartPage.clickShowPrice();
+    shoppingCartPage.checkTotalPrice().should('have.text', 35)
   });
 });
