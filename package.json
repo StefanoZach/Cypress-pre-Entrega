@@ -1,0 +1,25 @@
+{
+  "name": "pre-entrega",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "dependencies": {
+    "cypress": "^12.15.0",
+    "cypress-xpath": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": " npx cypress open --e2e -b electron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StefanoZach/pre-entrega-final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefanoZach/pre-entrega-final/issues"
+  },
+  "homepage": "https://github.com/StefanoZach/pre-entrega-final#readme"
+}

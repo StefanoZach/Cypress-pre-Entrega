@@ -1,13 +1,10 @@
 {
-    "productOne": 
-    {
+    "productOne": {
         "name": "Black T-Shirt",
-        "price": "$15"
+        "price": "15"
     },
-    
     "productTwo": {
-        
         "name": "White Pants",
-        "price": "$20"
-    }  
+        "price": "20"
+    }
 }

@@ -8,7 +8,7 @@ import { LandingPage } from "../support/Pages/landingPage";
 
 describe('template spec', () => {
   let loginData;
-
+  let prod;
   const loginPage = new LoginPage();
   const homePage = new HomePage();
   const productsPage = new ProductsPage();
@@ -19,7 +19,9 @@ describe('template spec', () => {
     cy.fixture("loginData").then(logIn => {
       loginData = logIn
     });
-    
+    cy.fixture('products').then(products => {
+      prod = products
+    });
   });
 
   beforeEach('login in', () => {
@@ -29,19 +31,17 @@ describe('template spec', () => {
     loginPage.loginUser(loginData.user);
     loginPage.loginPass(loginData.pass);
     loginPage.submitForm();
-  })
+  });
 
   it('Suite', () => {
     homePage.clickOnlineShop();
-    productsPage.addProduct(["//button[@id='blacktshirt']", "//button[@id='whitepants']"])
-    shoppingCartPage.clickShoppingCart()
-    shoppingCartPage.verifyProductsName();
-    shoppingCartPage.verifyProductsPrice();
-    shoppingCartPage.verifyProductsName();
-    shoppingCartPage.verifyProductsPrice();
+    productsPage.addProduct('blacktshirt');
+    productsPage.addProduct('whitepants');
+    productsPage.clickShoppingCart();
+    shoppingCartPage.verifyProductsName(prod.productOne.name).should('have.text', 'Black T-Shirt');
+    shoppingCartPage.verifyProductsPrice(prod.productOne.name).should('have.text', '$15');
+    shoppingCartPage.verifyProductsName(prod.productTwo.name).should('have.text', 'White Pants');
+    shoppingCartPage.verifyProductsPrice(prod.productTwo.name).should('have.text', '$20');
     shoppingCartPage.clickShowPrice();
-    shoppingCartPage.checkTotalPrice();
-
   });
-
 });

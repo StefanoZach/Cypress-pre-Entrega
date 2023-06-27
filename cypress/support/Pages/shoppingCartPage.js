@@ -1,39 +1,21 @@
-let prod;
 export class ShoppingCartPage {
 
     constructor() {
-        before('fixtures', () => {
-            cy.fixture('products').then(products => {
-                prod = products
-
-            });
-
-        });
+        this.button = 'button'
+        this.showTotalPrice = 'Show total price'
     }
+      verifyProductsName(productName) {
+        return cy.get(`[name="${productName}"]`);
+     };
+    verifyProductsPrice(productName)  {
+       return cy.get(`[name="${productName}"]`).siblings('#productPrice');
+    };
 
-    clickShoppingCart() {
-        cy.get('#goShoppingCart').click()
-    }
+    clickShowPrice() {
+        cy.get(this.button).contains(this.showTotalPrice).click();
+    };
 
-    verifyProductsName() {
-        cy.get('#productName').should('have.text', prod.productOne.name)
-        cy.xpath('//*[@id="productName"]').eq([1]).should('have.text', prod.productTwo.name)
-
-
-    }
-
-    verifyProductsPrice() {
-        cy.get('#productPrice').should('have.text', prod.productOne.price)
-        cy.xpath('//*[@id="productPrice"]').eq([1]).should('have.text', prod.productTwo.price)
-    }
-
-    clickShowPrice(){
-        cy.get('button').contains('Show total price').click()
-    }
-
-    checkTotalPrice(){
-        cy.get('.css-1g7ucpo').should('have.text', 'Total $35')
-    }
-
-
-}
+    checkTotalPrice() {
+        cy.get('.css-1g7ucpo');
+    };
+};

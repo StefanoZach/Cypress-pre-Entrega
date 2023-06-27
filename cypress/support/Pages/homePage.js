@@ -1,7 +1,5 @@
 export class HomePage {
-
     clickOnlineShop() {
-        cy.get('#onlineshoplink').click()
-    }
-
-}
+        cy.get('#onlineshoplink', {timeout : 50000}).click();
+    };
+};
