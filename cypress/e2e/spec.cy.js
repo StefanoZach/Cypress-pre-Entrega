@@ -8,7 +8,7 @@ import { LandingPage } from "../support/Pages/landingPage";
 
 describe('template spec', () => {
   let loginData;
-  let prod;
+  let product;
 
   const loginPage = new LoginPage();
   const homePage = new HomePage();
@@ -21,7 +21,7 @@ describe('template spec', () => {
       loginData = logIn
     });
     cy.fixture('products').then(products => {
-      prod = products
+      product = products
     });
   });
 
@@ -36,13 +36,13 @@ describe('template spec', () => {
 
   it('Suite', () => {
     homePage.clickOnlineShop();
-    productsPage.addProduct(prod.id.tshirt);
-    productsPage.addProduct(prod.id.pants);
+    productsPage.addProduct(product.id.tshirt);
+    productsPage.addProduct(product.id.pants);
     productsPage.clickShoppingCart();
-    shoppingCartPage.verifyProductsName(prod.productOne.name).should('have.text', prod.productOne.name);
-    shoppingCartPage.verifyProductsPrice(prod.productOne.name).should('have.text', prod.productOne.price);
-    shoppingCartPage.verifyProductsName(prod.productTwo.name).should('have.text', prod.productTwo.name);
-    shoppingCartPage.verifyProductsPrice(prod.productTwo.name).should('have.text', prod.productTwo.price)
+    shoppingCartPage.verifyProductsName(product.productOne.name).should('have.text', product.productOne.name);
+    shoppingCartPage.verifyProductsPrice(product.productOne.name).should('have.text', product.productOne.price);
+    shoppingCartPage.verifyProductsName(product.productTwo.name).should('have.text', product.productTwo.name);
+    shoppingCartPage.verifyProductsPrice(product.productTwo.name).should('have.text', product.productTwo.price)
     shoppingCartPage.clickShowPrice();
     shoppingCartPage.checkTotalPrice().should('have.text', 35)
   });
