@@ -5,12 +5,14 @@ export class ProductsPage {
         this.closeModal = '#closeModal';
     };
 
-    clickShoppingCart() {
-        cy.get(this.goShoppingCart).click();
-    };
-
     addProduct(productStr) {
         cy.xpath(`//*[@id="${productStr}"]`).click();
         cy.get(this.closeModal).click();
     };
+
+    clickShoppingCart() {
+        cy.get(this.goShoppingCart).click();
+    };
+
+   
 };

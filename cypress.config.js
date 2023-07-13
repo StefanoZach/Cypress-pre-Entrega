@@ -7,4 +7,5 @@ module.exports = defineConfig({
     },
     baseUrl: "https://pushing-front.vercel.app/",
   },
+  failOnStatusCode: false
 });

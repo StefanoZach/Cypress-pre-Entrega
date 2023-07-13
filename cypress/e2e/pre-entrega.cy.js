@@ -42,8 +42,8 @@ describe('template spec', () => {
     shoppingCartPage.verifyProductsName(product.productOne.name).should('have.text', product.productOne.name);
     shoppingCartPage.verifyProductsPrice(product.productOne.name).should('have.text', product.productOne.price);
     shoppingCartPage.verifyProductsName(product.productTwo.name).should('have.text', product.productTwo.name);
-    shoppingCartPage.verifyProductsPrice(product.productTwo.name).should('have.text', product.productTwo.price)
+    shoppingCartPage.verifyProductsPrice(product.productTwo.name).should('have.text', product.productTwo.price);
     shoppingCartPage.clickShowPrice();
-    shoppingCartPage.checkTotalPrice().should('have.text', 35)
+    shoppingCartPage.checkTotalPrice().should('have.text', 35);
   });
 });
