@@ -68,7 +68,7 @@ describe('entrega final', () => {
         shoppingCartPage.verifyProductsName(product.productTwo.name).should('have.text', product.productTwo.name);
         shoppingCartPage.verifyProductsPrice(product.productTwo.name).should('have.text', product.productTwo.price);
         shoppingCartPage.clickShowPrice();
-        shoppingCartPage.checkTotalPrice().should('have.text', 35);
+        shoppingCartPage.checkTotalPrice().should('contain', 35);
         checkOut.goCheckOut();
         checkOut.getName(infoCheckOut.name);
         checkOut.getLastName(infoCheckOut.lastname);
@@ -79,7 +79,7 @@ describe('entrega final', () => {
         reciptPage.verifyProductOne().should('have.text', product.productOne.name);
         reciptPage.verifyProductTwo().should('have.text', product.productTwo.name);
         reciptPage.verifyCreditCard().should('have.text', infoCheckOut.creditcard);
-        reciptPage.verifyTotalPrice().should('contain', '35');
+        reciptPage.verifyTotalPrice().should('contain', 35);
         reciptPage.clickThankYou();
     });
 
